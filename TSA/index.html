@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f1ea; /* Earth tone background */
+            background-color: #f4f1ea; 
             color: #333;
             margin: 0;
             padding: 0;
@@ -53,7 +53,7 @@
         }
 
         .nav a:hover {
-            background: #1e3a8a; /* Darker Blue */
+            background: #1e3a8a; 
             color: white;
         }
 
@@ -64,7 +64,7 @@
         .sidebar {
             width: 30%;
             padding: 20px;
-            background-color: #e0d8c3; /* Earth tone background */
+            background-color: #e0d8c3; 
             border-radius: 10px;
             margin-right: 20px;
             transition: background 0.3s, color 0.3s;
@@ -89,8 +89,8 @@
         }
 
         .content-section {
-            background-color: #f9f9f9; /* Light background for normal mode */
-            color: #333; /* Dark text for normal mode */
+            background-color: #f9f9f9; 
+            color: #333; 
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -149,12 +149,12 @@
         }
 
         body.dark-mode {
-            background-color: #4169e1; /* Royal Blue */
+            background-color: #4169e1; 
             color: #fff;
         }
 
         .sidebar.dark-mode {
-            background-color: #1e3a8a; /* Even darker blue for sidebar */
+            background-color: #1e3a8a; 
         }
 
         .nav a.dark-mode {
@@ -163,8 +163,8 @@
         }
 
         .content-section.dark-mode {
-            background-color: #1e3a8a; /* Dark blue background for dark mode */
-            color: #fff; /* White text for dark mode */
+            background-color: #1e3a8a; 
+            color: #fff; 
         }
     </style>
 </head>
@@ -277,12 +277,12 @@
     }
 
     body.dark-mode {
-        background-color: #4169e1; /* Royal Blue */
+        background-color: #4169e1;
         color: #fff;
     }
 
     .sidebar.dark-mode {
-        background-color: #1e3a8a; /* Even darker blue for sidebar */
+        background-color: #1e3a8a; 
     }
 
     .nav a.dark-mode {
@@ -293,16 +293,16 @@
 
 <style>
     .content-section {
-        background-color: #f9f9f9; /* Light background for normal mode */
-        color: #333; /* Dark text for normal mode */
+        background-color: #f9f9f9; 
+        color: #333; 
         padding: 20px;
         border-radius: 10px;
         transition: background 0.3s, color 0.3s;
     }
 
     .content-section.dark-mode {
-        background-color: #1e3a8a; /* Dark blue background for dark mode */
-        color: #fff; /* White text for dark mode */
+        background-color: #1e3a8a; 
+        color: #fff; 
     }
 </style>
 
@@ -312,7 +312,7 @@
         document.querySelector('.sidebar').classList.toggle('dark-mode', colorSwitch.checked);
 
         const navLinks = document.querySelectorAll('.nav a');
-        // No navigation links to toggle dark mode for
+        
         
         const contentSections = document.querySelectorAll('.content-section');
         contentSections.forEach(section => section.classList.toggle('dark-mode', colorSwitch.checked));
