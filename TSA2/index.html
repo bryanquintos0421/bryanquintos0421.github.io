@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSA2 - QUINTOS </title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5cba7;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+            width: 90vw;
+            height: 90vh;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 40%;
+        }
+        button {
+            width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid black;
+            font-size: 24px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .display-box {
+            width: 60%;
+            height: 100%;
+            background-color: transparent;
+            border-radius: 20px;
+            position: relative;
+            transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button onclick="changeBox('#ffd1dc')" style="background-color: #ffd1dc;">Monday</button>
+            <button onclick="changeBox('#faf4b7')" style="background-color: #faf4b7;">Tuesday</button>
+            <button onclick="changeBox('#aec6cf')" style="background-color: #aec6cf;">Wednesday</button>
+            <button onclick="changeBox('#d8bfd8')" style="background-color: #d8bfd8;">Thursday</button>
+            <button onclick="changeBox('#b5e7a0')" style="background-color: #b5e7a0;">Friday</button>
+            <button onclick="changeBox('#ffb7b2')" style="background-color: #ffb7b2;">Saturday</button>
+            <button onclick="changeBox('#cfcfc4')" style="background-color: #cfcfc4;">Sunday</button>
+        </div>
+        <div class="display-box" id="box"></div>
+    </div>
+    
+    <script>
+        function changeBox(color) {
+            let box = document.getElementById("box");
+            box.style.backgroundColor = color;
+            box.style.display = "block";
+            box.style.transform = "translateY(30px)";
+            setTimeout(() => {
+                box.style.transform = "translateY(0)";
+            }, 500);
+        }
+    </script>
+</body>
+</html>
