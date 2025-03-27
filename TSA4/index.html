@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('coffee-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .main-menu-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .title-box {
+            text-align: center;
+            background: #ffc107;
+            padding: 15px;
+            font-weight: bold;
+        }
+        .coffee-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .coffee-card {
+            cursor: pointer;
+            text-align: center;
+            width: 250px;
+            height: 400px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .coffee-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .coffee-card:hover {
+            transform: scale(1.05);
+        }
+        .coffee-card h5 {
+            background: #ffc107;
+            padding: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .coffee-info {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .coffee-card:hover .coffee-info {
+            opacity: 1;
+        }
+        .coffee-info button {
+            margin-top: 5px;
+            background: #ffc107;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: black;
+        }
+        .details-container {
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            padding: 40px;
+        }
+        .details-img {
+            width: 50%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .details-text {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-box">
+        <h1 class="display-6">Best Coffee Guide in the Metro</h1>
+        <p class="lead">Produced by Local Magazine</p>
+    </div>
+    <button class="btn btn-dark main-menu-btn" onclick="hideDetails()">Main Menu</button>
+    <div class="coffee-container" id="main-menu">
+        <div class="coffee-card" onclick="showDetails('americano')">
+            <img src="coffee1.jpg" alt="Americano">
+            <h5>Americano</h5>
+            <div class="coffee-info">
+                <p>A classic espresso with hot water.</p>
+                <button>More</button>
+            </div>
+        </div>
+        <div class="coffee-card" onclick="showDetails('spanish-latte')">
+            <img src="coffee2.jpg" alt="Spanish Latte">
+            <h5>Spanish Latte</h5>
+            <div class="coffee-info">
+                <p>A creamy espresso with sweet milk.</p>
+                <button>More</button>
+            </div>
+        </div>
+        <div class="coffee-card" onclick="showDetails('iced-espresso')">
+            <img src="coffee3.jpg" alt="Iced Shaken Espresso">
+            <h5>Iced Shaken Espresso</h5>
+            <div class="coffee-info">
+                <p>A smooth and refreshing iced coffee.</p>
+                <button>More</button>
+            </div>
+        </div>
+        <div class="coffee-card" onclick="showDetails('caramel-macchiato')">
+            <img src="coffee4.jpg" alt="Iced Caramel Macchiato">
+            <h5>Iced Caramel Macchiato</h5>
+            <div class="coffee-info">
+                <p>A layered iced coffee with caramel.</p>
+                <button>More</button>
+            </div>
+        </div>
+    </div>
+    <div id="details" class="details-container">
+        <img id="details-img" class="details-img" src="" alt="Coffee">
+        <div class="details-text">
+            <h2 id="details-title"></h2>
+            <p id="details-description"></p>
+            <p><strong>Address:</strong> 2 West 4th St, corner Quezon Ave, Quezon City</p>
+            <p><strong>Telephone:</strong> (02) 8426 3975</p>
+            <p><strong>Category:</strong> <span id="details-category"></span></p>
+            <p><strong>Open:</strong> 24 Hours</p>
+            <p><strong>Price:</strong> <span id="details-price"></span></p>
+        </div>
+    </div>
+    <script>
+        function showDetails(coffeeType) {
+            const details = {
+                'americano': {
+                    img: 'coffee1.jpg',
+                    title: 'Americano',
+                    description: 'A timeless classic, the Americano is the perfect choice for those who appreciate the pure, unaltered taste of coffee. Made by adding hot water to a rich, full-bodied shot of espresso, this method enhances the espresso’s deep, roasted flavors while creating a smooth and balanced cup. The simplicity of an Americano highlights the quality of the coffee beans, allowing their natural aromas and subtle undertones to shine. Whether enjoyed black or with a splash of milk, this bold yet approachable drink offers a satisfying experience for coffee lovers who prefer a strong, yet less intense alternative to straight espresso.',
+                    category: 'Hot Coffee',
+                    price: '200'
+                },
+                'spanish-latte': {
+                    img: 'coffee2.jpg',
+                    title: 'Spanish Latte',
+                    description: 'Indulgently smooth and slightly sweet, the Spanish Latte is a delightful twist on the traditional latte. It combines bold, aromatic espresso with steamed milk and a touch of condensed milk, creating a rich, velvety texture with a well-rounded, creamy sweetness. This popular drink originated in Spain and has since become a favorite among those who enjoy a more indulgent coffee experience. The balance between the espresso’s robust intensity and the sweetness of the milk makes it a comforting yet energizing choice, perfect for sipping at any time of the day.',
+                    category: 'Hot Coffee',
+                    price: '250'
+                },
+                'iced-espresso': {
+                    img: 'coffee3.jpg',
+                    title: 'Iced Shaken Espresso',
+                    description: 'Bold, refreshing, and invigorating, the Iced Shaken Espresso is a coffee lover’s go-to for a cool and energizing boost. Crafted by shaking freshly brewed espresso shots with ice and a hint of sweetener, this unique preparation method enhances the coffee’s natural richness while creating a smooth, frothy texture. The shaking process chills the espresso quickly, resulting in a refreshing and balanced flavor that is neither too bitter nor too sweet. With its strong caffeine kick and refreshing taste, this drink is the perfect choice for those who crave a bold espresso experience with an icy twist.',
+                    category: 'Cold Coffee',
+                    price: '250'
+                },
+                'caramel-macchiato': {
+                    img: 'coffee4.jpg',
+                    title: 'Iced Caramel Macchiato',
+                    description: 'A beautifully layered and indulgent coffee drink, the Iced Caramel Macchiato offers a delightful combination of bold espresso, creamy milk, and rich caramel. This popular favorite begins with vanilla-flavored milk over ice, topped with a strong shot of espresso, creating a striking contrast between the dark coffee and the smooth, sweet milk. Finally, a generous drizzle of golden caramel adds the perfect finishing touch, blending all the flavors into a deliciously sweet and slightly bitter harmony. This drink is ideal for those who love a touch of sweetness in their coffee while still savoring the deep, roasted notes of espresso.',
+                    category: 'Cold Coffee',
+                    price: '250'
+                }
+            };
+            const coffee = details[coffeeType];
+            document.getElementById('details-img').src = coffee.img;
+            document.getElementById('details-title').textContent = coffee.title;
+            document.getElementById('details-description').textContent = coffee.description;
+            document.getElementById('details-category').textContent = coffee.category;
+            document.getElementById('details-price').textContent = coffee.price;
+            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById('details').style.display = 'flex';
+        }
+        function hideDetails() {
+            document.getElementById('main-menu').style.display = 'flex';
+            document.getElementById('details').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
